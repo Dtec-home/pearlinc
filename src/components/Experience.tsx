@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import axios from 'axios';
 
 interface Experience {
   id: number;
@@ -7,22 +9,8 @@ interface Experience {
   company: string;
   duration: string;
   description: string[];
+  current: boolean;
 }
-
-const experiences: Experience[] = [
-  {
-    id: 1,
-    role: "Senior Full Stack Developer",
-    company: "Tech Company",
-    duration: "2022 - Present",
-    description: [
-      "Led development of microservices architecture using Node.js and Python",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
-      "Mentored junior developers and conducted code reviews"
-    ]
-  },
-  // Add more experiences as needed
-];
 
 const Experience = () => {
   const { ref, inView } = useInView({
@@ -30,16 +18,27 @@ const Experience = () => {
     threshold: 0.1,
   });
 
+  const { data: experiences = [], isLoading } = useQuery<Experience[]>({
+    queryKey: ['experiences'],
+    queryFn: () => axios.get('http://localhost:8000/api/experiences/').then(res => res.data),
+  });
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
   return (
     <section ref={ref} className="py-20 bg-gray-900" id="experience">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">Experience</h2>
         
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-blue-600" />
-
-          {/* Experience items */}
+          
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
@@ -66,7 +65,7 @@ const Experience = () => {
                 <div className="w-8 h-8 bg-blue-600 rounded-full relative z-10 mx-auto md:mx-0">
                   <div className="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                 </div>
-                <div className="flex-1" /> {/* Spacer div for timeline alignment */}
+                <div className="flex-1" />
               </motion.div>
             ))}
           </div>
