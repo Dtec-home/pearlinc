@@ -29,7 +29,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-white mb-12 text-center">Skills & Technologies</h2>
         
-        {categories.map((category, idx) => (
+        {categories.map((category) => (
           <div key={category} className="mb-12">
             <h3 className="text-2xl font-semibold text-white mb-6">{category}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
