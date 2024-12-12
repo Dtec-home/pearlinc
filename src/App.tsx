@@ -50,7 +50,7 @@ const App = () => {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-16">
                 <a href="#hero" className="text-xl font-bold text-white">
-                  Your Name
+                  Pearl Consult
                 </a>
                 <div className="hidden md:flex space-x-8">
                   {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
@@ -85,7 +85,7 @@ const App = () => {
       <footer className="bg-gray-900 border-t border-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Pearl Consult. All rights reserved.</p>
           </div>
         </div>
       </footer>
