@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
+import config from '../config';
 
 interface Project {
   id: number;
@@ -18,7 +19,7 @@ const Projects = () => {
   
   const { data: projects = [], isLoading } = useQuery<Project[]>({
     queryKey: ['projects'],
-    queryFn: () => axios.get('https://pearlbe.onrender.com/api/projects/').then(res => res.data),
+    queryFn: () => axios.get(`${config.apiUrl}/api/projects/`).then(res => res.data),
   });
 
   const technologies = ['All', ...new Set(projects.flatMap(p => p.technologies))];

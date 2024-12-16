@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import config from '../config';
 
 interface FormData {
   name: string;
@@ -21,7 +22,7 @@ const Contact = () => {
     setStatus('loading');
 
     try {
-      await axios.post('https://pearlbe.onrender.com/api/contact/', formData);
+      await axios.post(`${config.apiUrl}/api/contact/`, formData);
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {

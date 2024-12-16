@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import axios from 'axios';
+import config from '../config';
 
 interface Experience {
   id: number;
@@ -20,7 +21,7 @@ const Experience = () => {
 
   const { data: experiences = [], isLoading } = useQuery<Experience[]>({
     queryKey: ['experiences'],
-    queryFn: () => axios.get('https://pearlbe.onrender.com/api/experiences/').then(res => res.data),
+    queryFn: () => axios.get(`${config.apiUrl}/api/experiences/`).then(res => res.data),
   });
 
   if (isLoading) {

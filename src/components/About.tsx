@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import mdkamauImage from '../assets/mdkamau.jpeg';
 
 const About = () => {
   const { ref, inView } = useInView({
@@ -29,25 +30,40 @@ const About = () => {
               collaboration tools. I'm particularly interested in cloud architecture
               and scalable systems.
             </p>
-            <div className="flex space-x-4">
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                href="https://drive.google.com/file/d/1J-NmtW7fxHg70--ZqfTLzxWfeEAvrqS7/view?usp=drive_link"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              >
                 Download CV
-              </button>
-              <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition">
+              </motion.a>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition"
+              >
                 Contact Me
-              </button>
+              </motion.a>
             </div>
           </div>
-          <div className="relative">
-            <div className="w-full h-96 bg-gray-700 rounded-lg overflow-hidden">
-              {/* Add your image here */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/api/placeholder/600/400"
-                alt="Profile" 
-                className="w-full h-full object-cover"
+                src={mdkamauImage}
+                alt="MD Kamau" 
+                className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
