@@ -18,7 +18,7 @@ const Projects = () => {
   
   const { data: projects = [], isLoading } = useQuery<Project[]>({
     queryKey: ['projects'],
-    queryFn: () => axios.get('http://localhost:8000/api/projects/').then(res => res.data),
+    queryFn: () => axios.get('https://pearlbe.onrender.com/api/projects/').then(res => res.data),
   });
 
   const technologies = ['All', ...new Set(projects.flatMap(p => p.technologies))];

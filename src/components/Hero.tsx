@@ -26,10 +26,10 @@ const Hero = () => {
           Specializing in MERN Stack, Django REST, and Cloud Solutions
         </motion.p>
         <div className="flex justify-center space-x-4">
-          <a href="https://github.com/yourusername" className="text-white hover:text-gray-300">
+          <a href="https://github.com/Dtec-home" className="text-white hover:text-gray-300">
             <FaGithub size={30} />
           </a>
-          <a href="https://linkedin.com/in/yourusername" className="text-white hover:text-gray-300">
+          <a href="https://www.linkedin.com/in/kamau-david/" className="text-white hover:text-gray-300">
             <FaLinkedin size={30} />
           </a>
         </div>

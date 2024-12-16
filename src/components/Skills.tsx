@@ -19,7 +19,7 @@ const Skills = () => {
 
   const { data: skills = [] } = useQuery<Skill[]>({
     queryKey: ['skills'],
-    queryFn: () => axios.get('http://localhost:8000/api/skills/').then(res => res.data),
+    queryFn: () => axios.get('https://pearlbe.onrender.com/api/skills/').then(res => res.data),
   });
 
   const categories = Array.from(new Set(skills.map(skill => skill.category)));

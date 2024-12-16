@@ -20,7 +20,7 @@ const Experience = () => {
 
   const { data: experiences = [], isLoading } = useQuery<Experience[]>({
     queryKey: ['experiences'],
-    queryFn: () => axios.get('http://localhost:8000/api/experiences/').then(res => res.data),
+    queryFn: () => axios.get('https://pearlbe.onrender.com/api/experiences/').then(res => res.data),
   });
 
   if (isLoading) {

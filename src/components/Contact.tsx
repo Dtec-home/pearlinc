@@ -21,7 +21,7 @@ const Contact = () => {
     setStatus('loading');
 
     try {
-      await axios.post('http://localhost:8000/api/contact/', formData);
+      await axios.post('https://pearlbe.onrender.com/api/contact/', formData);
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
