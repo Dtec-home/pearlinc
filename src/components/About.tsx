@@ -32,7 +32,7 @@ const About = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="https://drive.google.com/file/d/1J-NmtW7fxHg70--ZqfTLzxWfeEAvrqS7/view?usp=drive_link"
+                href="https://1drv.ms/w/c/982f555e650bcfc8/ESrlZxSind9Ghvc00iZysZwB-mt7l3carCMLNvessscyZQ?e=N5lLIt"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
